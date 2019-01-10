@@ -1,11 +1,15 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +28,9 @@ public class Utilisateur {
 	@Column(name = "type_utilisateur")
 	@Enumerated(EnumType.STRING)
 	private TypeUtilisateur typeUtilisateur;
+
+	@OneToMany(mappedBy = "utilisateur")
+	private List<Patient> patients = new ArrayList<>();
 
 	public Utilisateur() {
 		super();
@@ -58,6 +65,14 @@ public class Utilisateur {
 
 	public void setTypeUtilisateur(TypeUtilisateur typeUtilisateur) {
 		this.typeUtilisateur = typeUtilisateur;
+	}
+
+	public List<Patient> getPatients() {
+		return patients;
+	}
+
+	public void setPatients(List<Patient> patients) {
+		this.patients = patients;
 	}
 
 }

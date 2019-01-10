@@ -27,6 +27,14 @@ public class Patient {
 	@Column(name = "principale")
 	private boolean principale;
 
+	@ManyToOne
+	@JoinColumn(name = "utilisateur_id")
+	private Utilisateur utilisateur;
+
+	@OneToOne
+	@JoinColumn(name = "adresse_id")
+	private Adresse adresse;
+
 	public Patient() {
 		super();
 	}
@@ -86,6 +94,22 @@ public class Patient {
 
 	public void setPrincipale(boolean principale) {
 		this.principale = principale;
+	}
+
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 
 }

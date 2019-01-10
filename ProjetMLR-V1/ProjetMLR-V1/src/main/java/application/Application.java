@@ -25,7 +25,6 @@ public class Application {
 	private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("projetmlr");
 	private final IDaoUtilisateur daoUtilisateur = new DaoUtilisateurJpa();
 	private final IDaoAdresse daoAdresse = new DaoAdresseJpa();
-	// private final IDaoPat daoMatiere = new DaoPatientJpa();
 	private final IDaoMotif daoMotif = new DaoMotifJpa();
 	private final IDaoCreneaux daoCreneaux = new DaoCreneauxJpa();
 	private final IDaoPatient daoPatient = new DaoPatientJpa();

@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +28,9 @@ public class Adresse {
 
 	@Column(name = "pays")
 	private String pays;
+
+	@OneToOne(mappedBy = "adresse")
+	private Patient patient;
 
 	public Adresse() {
 		super();
@@ -79,6 +83,14 @@ public class Adresse {
 
 	public void setPays(String pays) {
 		this.pays = pays;
+	}
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 
 }
