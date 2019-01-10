@@ -4,7 +4,12 @@ package application;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-//import dao.jpa.DaoPatientJpa;
+import dao.jpa.DaoAdresseJpa;
+import dao.jpa.DaoUtilisateurJpa;
+import idao.IDaoAdresse;
+import idao.IDaoUtilisateur;
+
+
 
 
 
@@ -13,7 +18,11 @@ public class Application {
 	private static Application instance = null;
 
 	private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("projetmlr");
-//	private final IDaoPat daoMatiere = new DaoPatientJpa();
+	private final IDaoUtilisateur daoUtilisateur = new DaoUtilisateurJpa();
+	private final IDaoAdresse daoAdresse = new DaoAdresseJpa();
+	
+	private Application() {
+	}
 	
 	public static Application getInstance() {
 		if (instance == null) {
@@ -27,4 +36,14 @@ public class Application {
 		return emf;
 	}
 
+	public IDaoUtilisateur getDaoUtilisateur() {
+		return daoUtilisateur;
+	}
+
+	public IDaoAdresse getDaoAdresse() {
+		return daoAdresse;
+	}
+	
+	
+	
 }
