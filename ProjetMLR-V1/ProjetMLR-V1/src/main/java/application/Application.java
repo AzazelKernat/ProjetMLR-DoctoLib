@@ -3,16 +3,20 @@ package application;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import dao.jpa.DaoAdresseJpa;
+import dao.jpa.DaoCreneauxJpa;
+import dao.jpa.DaoMotifJpa;
 import dao.jpa.DaoPatientJpa;
 import dao.jpa.DaoPraticienJpa;
 import dao.jpa.DaoSpecialiteJpa;
+import dao.jpa.DaoUtilisateurJpa;
+import idao.IDaoAdresse;
+import idao.IDaoCreneaux;
+import idao.IDaoMotif;
 import idao.IDaoPatient;
 import idao.IDaoPraticien;
 import idao.IDaoSpecialite;
-import dao.jpa.DaoCreneauxJpa;
-import dao.jpa.DaoMotifJpa;
-import idao.IDaoCreneaux;
-import idao.IDaoMotif;
+import idao.IDaoUtilisateur;
 
 public class Application {
 
@@ -21,12 +25,12 @@ public class Application {
 	private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("projetmlr");
 	private final IDaoUtilisateur daoUtilisateur = new DaoUtilisateurJpa();
 	private final IDaoAdresse daoAdresse = new DaoAdresseJpa();
-//	private final IDaoPat daoMatiere = new DaoPatientJpa();
+	// private final IDaoPat daoMatiere = new DaoPatientJpa();
 	private final IDaoMotif daoMotif = new DaoMotifJpa();
 	private final IDaoCreneaux daoCreneaux = new DaoCreneauxJpa();
 	private final IDaoPatient daoPatient = new DaoPatientJpa();
-	private final IDaoPraticien daoPraticien= new DaoPraticienJpa();
-	private final IDaoSpecialite daoSpecialite= new DaoSpecialiteJpa();
+	private final IDaoPraticien daoPraticien = new DaoPraticienJpa();
+	private final IDaoSpecialite daoSpecialite = new DaoSpecialiteJpa();
 
 	private Application() {
 	}
@@ -43,17 +47,26 @@ public class Application {
 		return emf;
 	}
 
-		return daoMotif;
-	public IDaoMotif getDaoMotif() {
+	public IDaoUtilisateur getDaoUtilisateur() {
+		return daoUtilisateur;
 	}
 
-		return daoCreneaux;
+	public IDaoAdresse getDaoAdresse() {
+		return daoAdresse;
+	}
+
+	public IDaoMotif getDaoMotif() {
+		return daoMotif;
+	}
+
 	public IDaoCreneaux getDaoCreneaux() {
+		return daoCreneaux;
 	}
 
 	public IDaoPatient getDaoPatient() {
 		return daoPatient;
 	}
+
 	public IDaoPraticien getDaoPraticien() {
 
 		return daoPraticien;
