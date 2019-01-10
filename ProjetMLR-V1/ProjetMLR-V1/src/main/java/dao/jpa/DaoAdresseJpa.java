@@ -12,7 +12,7 @@ import model.Adresse;
 
 public class DaoAdresseJpa implements IDaoAdresse{
 
-	@Override
+	@Override 
 	public List<Adresse> findAll() {
 		List<Adresse> liste = null;
 		EntityManager em = null;

@@ -10,60 +10,54 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "utilisateur")
-
-
 public class Utilisateur {
-@Id
-@GeneratedValue
-private Integer id;
+	@Id
+	@GeneratedValue
+	private Integer id;
 
-@Column(name= "mail")
-private String mail;
+	@Column(name = "mail")
+	private String mail;
 
-@Column(name= "mot_de_passe")
-private String motDePasse;
+	@Column(name = "mot_de_passe")
+	private String motDePasse;
 
-@Column(name= "type_utilisateur")
-@Enumerated(EnumType.STRING)
-private TypeUtilisateur typeUtilisateur;
+	@Column(name = "type_utilisateur")
+	@Enumerated(EnumType.STRING)
+	private TypeUtilisateur typeUtilisateur;
 
+	public Utilisateur() {
+		super();
+	}
 
-public Utilisateur() {
-	super();
-}
+	public Utilisateur(String mail, String motDePasse, TypeUtilisateur typeUtilisateur) {
+		super();
+		this.mail = mail;
+		this.motDePasse = motDePasse;
+		this.typeUtilisateur = typeUtilisateur;
+	}
 
-public Utilisateur(String mail, String motDePasse, TypeUtilisateur typeUtilisateur) {
-	super();
-	this.mail = mail;
-	this.motDePasse = motDePasse;
-	this.typeUtilisateur = typeUtilisateur;
-}
+	public String getMail() {
+		return mail;
+	}
 
-public String getMail() {
-	return mail;
-}
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
 
-public void setMail(String mail) {
-	this.mail = mail;
-}
+	public String getMotDePasse() {
+		return motDePasse;
+	}
 
-public String getMotDePasse() {
-	return motDePasse;
-}
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
+	}
 
-public void setMotDePasse(String motDePasse) {
-	this.motDePasse = motDePasse;
-}
+	public TypeUtilisateur getTypeUtilisateur() {
+		return typeUtilisateur;
+	}
 
-public TypeUtilisateur getTypeUtilisateur() {
-	return typeUtilisateur;
-}
+	public void setTypeUtilisateur(TypeUtilisateur typeUtilisateur) {
+		this.typeUtilisateur = typeUtilisateur;
+	}
 
-public void setTypeUtilisateur(TypeUtilisateur typeUtilisateur) {
-	this.typeUtilisateur = typeUtilisateur;
-}
-
-
-
-	
 }

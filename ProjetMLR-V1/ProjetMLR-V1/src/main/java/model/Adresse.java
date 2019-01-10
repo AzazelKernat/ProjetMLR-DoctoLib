@@ -8,8 +8,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "adresse")
-
-
 public class Adresse {
 	@Id
 	@GeneratedValue

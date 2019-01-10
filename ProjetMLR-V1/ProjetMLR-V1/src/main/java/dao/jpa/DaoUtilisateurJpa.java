@@ -13,7 +13,7 @@ import model.Utilisateur;
 
 
 public class DaoUtilisateurJpa implements IDaoUtilisateur{
-	@Override
+	@Override 
 	public List<Utilisateur> findAll() {
 		List<Utilisateur> liste = null;
 		EntityManager em = null;
