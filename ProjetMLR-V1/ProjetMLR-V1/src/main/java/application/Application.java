@@ -4,18 +4,22 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import dao.jpa.DaoAdresseJpa;
+import dao.jpa.DaoAdressePraticienJpa;
 import dao.jpa.DaoCreneauxJpa;
 import dao.jpa.DaoMotifJpa;
 import dao.jpa.DaoPatientJpa;
 import dao.jpa.DaoPraticienJpa;
 import dao.jpa.DaoSpecialiteJpa;
+import dao.jpa.DaoSpecialitePraticienJpa;
 import dao.jpa.DaoUtilisateurJpa;
 import idao.IDaoAdresse;
+import idao.IDaoAdressePraticien;
 import idao.IDaoCreneaux;
 import idao.IDaoMotif;
 import idao.IDaoPatient;
 import idao.IDaoPraticien;
 import idao.IDaoSpecialite;
+import idao.IDaoSpecialitePraticien;
 import idao.IDaoUtilisateur;
 
 public class Application {
@@ -30,6 +34,8 @@ public class Application {
 	private final IDaoPatient daoPatient = new DaoPatientJpa();
 	private final IDaoPraticien daoPraticien = new DaoPraticienJpa();
 	private final IDaoSpecialite daoSpecialite = new DaoSpecialiteJpa();
+	private final IDaoAdressePraticien daoAdressePraticien = new DaoAdressePraticienJpa();
+	private final IDaoSpecialitePraticien daoSpecialitePraticien = new DaoSpecialitePraticienJpa();
 
 	private Application() {
 	}
@@ -40,6 +46,10 @@ public class Application {
 		}
 
 		return instance;
+	}
+
+	public IDaoAdressePraticien getDaoAdressePraticien() {
+		return daoAdressePraticien;
 	}
 
 	public EntityManagerFactory getEmf() {
@@ -73,6 +83,10 @@ public class Application {
 
 	public IDaoSpecialite getDaoSpecialite() {
 		return daoSpecialite;
+	}
+
+	public IDaoSpecialitePraticien getDaoSpecialitePraticien() {
+		return daoSpecialitePraticien;
 	}
 
 }

@@ -1,6 +1,8 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -43,6 +45,20 @@ public class Praticien {
 	@OneToOne
 	@JoinColumn(name = "utilisateur_id")
 	private Utilisateur utilisateur;
+
+	@OneToMany(mappedBy = "praticien")
+	private List<AdressePraticien> adresses = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "praticienS")
+	private List<SpecialitePraticien> specialites = new ArrayList<>();
+
+	public List<SpecialitePraticien> getSpecialites() {
+		return specialites;
+	}
+
+	public void setSpecialites(List<SpecialitePraticien> specialites) {
+		this.specialites = specialites;
+	}
 
 	public Praticien() {
 		super();
@@ -146,6 +162,16 @@ public class Praticien {
 	public void setEspeces(boolean especes) {
 		this.especes = especes;
 	}
+
+	public List<AdressePraticien> getAdresses() {
+		return adresses;
+	}
+
+	public void setAdresses(List<AdressePraticien> adresses) {
+		this.adresses = adresses;
+	}
+
+
 
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
