@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "creneaux")
@@ -15,13 +16,15 @@ public class Creneaux {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	@Version
+	private int version;
+
 	@Column(name = "date")
 	private Date date;
+
 	@Column(name = "dureeCreneau")
 	private Integer dureeCreneau;
-//	@Column(name = "adresse")
-//	@Embedded
-//	private Adresse lieuConsult;
 
 	public Creneaux() {
 		super();
@@ -57,12 +60,20 @@ public class Creneaux {
 		this.dureeCreneau = dureeCreneau;
 	}
 
-//	public Adresse getLieuConsult() {
-//		return lieuConsult;
-//	}
-//
-//	public void setLieuConsult(Adresse lieuConsult) {
-//		this.lieuConsult = lieuConsult;
-//	}
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+	// public Adresse getLieuConsult() {
+	// return lieuConsult;
+	// }
+	//
+	// public void setLieuConsult(Adresse lieuConsult) {
+	// this.lieuConsult = lieuConsult;
+	// }
 
 }

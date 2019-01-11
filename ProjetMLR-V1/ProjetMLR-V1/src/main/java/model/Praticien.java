@@ -13,6 +13,9 @@ public class Praticien {
 	@GeneratedValue
 	private long id;
 
+	@Version
+	private int version;
+
 	@Column(name = "nom")
 	private String nom;
 
@@ -41,14 +44,14 @@ public class Praticien {
 
 	@Column(name = "especes")
 	private boolean especes;
-	
+
 	@OneToOne
 	@JoinColumn(name = "utilisateur_id")
 	private Utilisateur utilisateur;
 
 	@OneToMany(mappedBy = "praticien")
 	private List<AdressePraticien> adresses = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "praticienS")
 	private List<SpecialitePraticien> specialites = new ArrayList<>();
 
@@ -171,8 +174,6 @@ public class Praticien {
 		this.adresses = adresses;
 	}
 
-
-
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
@@ -180,5 +181,21 @@ public class Praticien {
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
 	}
-	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
 }

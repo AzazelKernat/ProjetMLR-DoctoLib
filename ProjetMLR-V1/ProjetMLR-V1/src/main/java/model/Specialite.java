@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "specialite")
@@ -16,6 +17,9 @@ public class Specialite {
 	@Id
 	@GeneratedValue
 	private long id;
+
+	@Version
+	private int version;
 
 	@Column(name = "nom")
 	private String nom;
@@ -47,4 +51,21 @@ public class Specialite {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
 }

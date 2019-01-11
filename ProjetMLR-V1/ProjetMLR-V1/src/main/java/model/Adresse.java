@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "adresse")
@@ -18,6 +19,25 @@ public class Adresse {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+	public List<AdressePraticien> getAdresses() {
+		return adresses;
+	}
+
+	public void setAdresses(List<AdressePraticien> adresses) {
+		this.adresses = adresses;
+	}
+
+	@Version
+	private int version;
 
 	@Column(name = "numero")
 	private Integer numero;

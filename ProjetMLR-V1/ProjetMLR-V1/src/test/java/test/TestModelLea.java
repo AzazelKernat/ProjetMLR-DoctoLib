@@ -22,10 +22,10 @@ import model.SpecialitePraticien;
 public class TestModelLea {
 
 	public static void main(String[] args) throws ParseException {
-		// test1();
-		// test2();
+		 test1();
+		 test2();
 		// test3();
-//		test4();
+		test4();
 		test5();
 	}
 	
@@ -38,7 +38,7 @@ public class TestModelLea {
 		IDaoSpecialitePraticien daoSpecialitePraticien = Application.getInstance().getDaoSpecialitePraticien();
 		IDaoSpecialite daoSpecialite = Application.getInstance().getDaoSpecialite();
 
-		List<SpecialitePraticien> listAd = new ArrayList<>();
+//		List<SpecialitePraticien> listAd = new ArrayList<>();
 
 		Specialite gynecologie = new Specialite("gynecologie");
 		gynecologie = daoSpecialite.save(gynecologie);
@@ -70,11 +70,11 @@ public class TestModelLea {
 		spe1Prat2 = daoSpecialitePraticien.save(spe1Prat2);
 		spe2Prat2 = daoSpecialitePraticien.save(spe2Prat2);
 
-		listAd.add(spe1Prat1);
-		listAd.add(spe2Prat1);
-		listAd.add(spe3Prat1);
-		listAd.add(spe1Prat2);
-		listAd.add(spe2Prat2);
+//		listAd.add(spe1Prat1);
+//		listAd.add(spe2Prat1);
+//		listAd.add(spe3Prat1);
+//		listAd.add(spe1Prat2);
+//		listAd.add(spe2Prat2);
 	}
 
 	public static void test4() throws ParseException {

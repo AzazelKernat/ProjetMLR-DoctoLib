@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "Motif")
@@ -13,10 +14,16 @@ public class Motif {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	@Version
+	private int version;
+
 	@Column(name = "motif")
 	private String motif;
+
 	@Column(name = "prix")
 	private Integer prix;
+
 	@Column(name = "duree")
 	private Integer duree;
 
@@ -63,4 +70,11 @@ public class Motif {
 		this.duree = duree;
 	}
 
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
 }

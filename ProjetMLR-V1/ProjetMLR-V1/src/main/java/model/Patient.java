@@ -11,6 +11,9 @@ public class Patient {
 	@GeneratedValue
 	private long id;
 
+	@Version
+	private int version;
+
 	@Column(name = "nom")
 	private String nom;
 
@@ -110,6 +113,22 @@ public class Patient {
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 }
