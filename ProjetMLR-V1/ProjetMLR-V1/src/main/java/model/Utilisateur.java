@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +32,9 @@ public class Utilisateur {
 
 	@OneToMany(mappedBy = "utilisateur")
 	private List<Patient> patients = new ArrayList<>();
+
+	@OneToOne(mappedBy = "utilisateur")
+	private Praticien praticien;
 
 	public Utilisateur() {
 		super();
@@ -74,5 +78,14 @@ public class Utilisateur {
 	public void setPatients(List<Patient> patients) {
 		this.patients = patients;
 	}
+
+	public Praticien getPraticien() {
+		return praticien;
+	}
+
+	public void setPraticien(Praticien praticien) {
+		this.praticien = praticien;
+	}
+	
 
 }

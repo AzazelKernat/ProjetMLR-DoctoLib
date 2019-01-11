@@ -39,6 +39,10 @@ public class Praticien {
 
 	@Column(name = "especes")
 	private boolean especes;
+	
+	@OneToOne
+	@JoinColumn(name = "utilisateur_id")
+	private Utilisateur utilisateur;
 
 	public Praticien() {
 		super();
@@ -143,4 +147,12 @@ public class Praticien {
 		this.especes = especes;
 	}
 
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+	
 }

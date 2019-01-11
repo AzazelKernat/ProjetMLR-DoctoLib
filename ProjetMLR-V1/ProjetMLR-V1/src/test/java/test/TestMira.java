@@ -6,9 +6,11 @@ import java.text.SimpleDateFormat;
 import application.Application;
 import idao.IDaoAdresse;
 import idao.IDaoPatient;
+import idao.IDaoPraticien;
 import idao.IDaoUtilisateur;
 import model.Adresse;
 import model.Patient;
+import model.Praticien;
 import model.TypeUtilisateur;
 import model.Utilisateur;
 
@@ -44,6 +46,19 @@ public class TestMira {
 		Patient chene = new Patient("Dugland", "chene", sdf.parse("26/10/2002"), true);
 		chene = daoPatient.save(chene);
 		
+		//test praticien
+		SimpleDateFormat shf = new SimpleDateFormat("hh:mm");
+
+		IDaoPraticien daoPraticien = Application.getInstance().getDaoPraticien();
+
+		Praticien eric = new Praticien("Sultan", "Eric", sdf.parse("14/06/1968"), shf.parse("09:00"), "634856415",
+				true, false, true);
+		eric = daoPraticien.save(eric);
+
+		Praticien emilie = new Praticien("Blunt", "Emilie", sdf.parse("05/07/179"), shf.parse("08:30"),"0154973265", "56456415",
+				true, false, true);
+		emilie = daoPraticien.save(emilie);
+		
 		//test lien utilisateur patient
 		herve.setUtilisateur(lea);
 		herve = daoPatient.save(herve);
@@ -51,6 +66,13 @@ public class TestMira {
 		//test lien patient adresse
 		chene.setAdresse(adr);
 		chene = daoPatient.save(chene);
+		
+		//test lien utilisateur praticien
+		eric.setUtilisateur(lea);
+		eric = daoPraticien.save(eric);
+		
+		emilie.setUtilisateur(mira);
+		emilie = daoPraticien.save(emilie);
 		
 	}
 
